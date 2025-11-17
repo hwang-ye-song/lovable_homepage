@@ -1,0 +1,170 @@
+{
+  "basic": {
+    "id": "basic",
+    "title": "Basic Track",
+    "subtitle": "Foundation in AI and Programming",
+    "description": "Build a strong foundation in AI concepts, programming fundamentals, and logical thinking. This comprehensive track is designed for beginners with no prior programming experience, guiding you through the essentials of artificial intelligence and Python programming.",
+    "level": "Beginner",
+    "duration": "12 weeks",
+    "students": "150+ enrolled",
+    "tracks": [
+      {
+        "name": "Track 1: Introduction to AI",
+        "duration": "4 weeks",
+        "description": "Discover the fundamentals of artificial intelligence and its real-world applications",
+        "topics": [
+          "What is AI and Machine Learning?",
+          "History and Evolution of AI",
+          "AI Applications in Daily Life",
+          "Ethics and Responsible AI",
+          "Introduction to Python Programming",
+          "Setting Up Your Development Environment"
+        ]
+      },
+      {
+        "name": "Track 2: Programming Fundamentals",
+        "duration": "5 weeks",
+        "description": "Master Python programming and essential data structures for AI development",
+        "topics": [
+          "Python Syntax and Variables",
+          "Control Flow and Loops",
+          "Functions and Modules",
+          "Data Structures (Lists, Dictionaries, Sets)",
+          "File Handling and Data Processing",
+          "Algorithm Design and Problem Solving"
+        ]
+      },
+      {
+        "name": "Track 3: Machine Learning Basics",
+        "duration": "3 weeks",
+        "description": "Apply your skills to build your first machine learning projects",
+        "topics": [
+          "Introduction to Machine Learning Concepts",
+          "Supervised vs Unsupervised Learning",
+          "Training Your First Model",
+          "Data Preprocessing and Feature Engineering",
+          "Model Evaluation and Metrics",
+          "Capstone Project: Build an AI Application"
+        ]
+      }
+    ],
+    "mediaAssets": [
+      { "type": "image", "title": "Python Programming", "emoji": "🐍" },
+      { "type": "image", "title": "AI Concepts", "emoji": "🧠" },
+      { "type": "image", "title": "Data Visualization", "emoji": "📊" },
+      { "type": "image", "title": "First ML Model", "emoji": "🤖" }
+    ]
+  },
+  "application": {
+    "id": "application",
+    "title": "Application Track",
+    "subtitle": "Real-World AI Applications",
+    "description": "Apply AI techniques to solve real-world problems and develop practical solutions. This intermediate track builds on foundational knowledge to create production-ready AI applications using modern frameworks and tools.",
+    "level": "Intermediate",
+    "duration": "16 weeks",
+    "students": "120+ enrolled",
+    "tracks": [
+      {
+        "name": "Track 1: Advanced Machine Learning",
+        "duration": "5 weeks",
+        "description": "Deep dive into advanced ML algorithms and techniques",
+        "topics": [
+          "Decision Trees and Random Forests",
+          "Support Vector Machines",
+          "Neural Network Fundamentals",
+          "Ensemble Learning Methods",
+          "Hyperparameter Tuning",
+          "Cross-Validation Techniques"
+        ]
+      },
+      {
+        "name": "Track 2: Deep Learning & Computer Vision",
+        "duration": "6 weeks",
+        "description": "Master neural networks and visual AI applications",
+        "topics": [
+          "Deep Neural Networks Architecture",
+          "Convolutional Neural Networks (CNN)",
+          "Transfer Learning with Pre-trained Models",
+          "Object Detection and Recognition",
+          "Image Classification Projects",
+          "TensorFlow and PyTorch Fundamentals"
+        ]
+      },
+      {
+        "name": "Track 3: NLP & Production Deployment",
+        "duration": "5 weeks",
+        "description": "Build and deploy complete AI applications",
+        "topics": [
+          "Natural Language Processing Basics",
+          "Text Classification and Sentiment Analysis",
+          "Chatbot Development",
+          "Model Deployment Strategies",
+          "API Development for ML Models",
+          "Capstone: End-to-End AI Application"
+        ]
+      }
+    ],
+    "mediaAssets": [
+      { "type": "image", "title": "Neural Networks", "emoji": "🕸️" },
+      { "type": "image", "title": "Computer Vision", "emoji": "👁️" },
+      { "type": "image", "title": "NLP Processing", "emoji": "💬" },
+      { "type": "image", "title": "Model Deployment", "emoji": "🚀" }
+    ]
+  },
+  "robot": {
+    "id": "robot",
+    "title": "Robot Track",
+    "subtitle": "Intelligent Robotics Systems",
+    "description": "Design, build, and program intelligent robotic systems from scratch. This advanced track combines AI, hardware engineering, and control systems to create autonomous robots capable of perceiving and interacting with their environment.",
+    "level": "Advanced",
+    "duration": "20 weeks",
+    "students": "80+ enrolled",
+    "tracks": [
+      {
+        "name": "Track 1: Robotics Hardware & Fundamentals",
+        "duration": "6 weeks",
+        "description": "Learn robotics hardware, sensors, and electronic components",
+        "topics": [
+          "Robotics Components and Architecture",
+          "Sensors and Actuators",
+          "Motor Control Systems",
+          "Power Management and Electronics",
+          "Microcontrollers and Embedded Systems",
+          "Building Your First Robot"
+        ]
+      },
+      {
+        "name": "Track 2: Robot Programming & Navigation",
+        "duration": "7 weeks",
+        "description": "Program robots for autonomous navigation and control",
+        "topics": [
+          "Introduction to ROS (Robot Operating System)",
+          "Sensor Integration and Data Processing",
+          "Motion Planning and Path Finding",
+          "Obstacle Avoidance Algorithms",
+          "Localization and Mapping (SLAM)",
+          "Autonomous Navigation Systems"
+        ]
+      },
+      {
+        "name": "Track 3: AI for Robotics & Final Project",
+        "duration": "7 weeks",
+        "description": "Integrate AI with robotics for intelligent behavior",
+        "topics": [
+          "Computer Vision for Robotics",
+          "Object Recognition and Tracking",
+          "Decision Making and Behavior Planning",
+          "Human-Robot Interaction",
+          "Robotic Arm Manipulation",
+          "Final Project: Build an Autonomous Robot"
+        ]
+      }
+    ],
+    "mediaAssets": [
+      { "type": "image", "title": "Robot Assembly", "emoji": "🔧" },
+      { "type": "image", "title": "Autonomous Navigation", "emoji": "🗺️" },
+      { "type": "image", "title": "Computer Vision", "emoji": "📷" },
+      { "type": "image", "title": "Complete Robot", "emoji": "🤖" }
+    ]
+  }
+}
