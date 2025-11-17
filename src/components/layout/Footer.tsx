@@ -1,0 +1,95 @@
+import { Link } from "react-router-dom";
+import { Bot, Mail, Phone, MapPin } from "lucide-react";
+
+export const Footer = () => {
+  return (
+    <footer className="bg-secondary text-secondary-foreground">
+      <div className="container mx-auto px-4 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand */}
+          <div>
+            <div className="flex items-center gap-2 font-heading font-bold text-xl mb-4">
+              <Bot className="h-6 w-6 text-accent" />
+              <span>AI & Robotics Academy</span>
+            </div>
+            <p className="text-sm text-secondary-foreground/80">
+              Empowering the next generation of AI and robotics innovators.
+            </p>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h3 className="font-heading font-semibold mb-4">Quick Links</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/" className="hover:text-accent transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link to="/portfolio" className="hover:text-accent transition-colors">
+                  Portfolio
+                </Link>
+              </li>
+              <li>
+                <Link to="/faculty" className="hover:text-accent transition-colors">
+                  Faculty
+                </Link>
+              </li>
+              <li>
+                <Link to="/login" className="hover:text-accent transition-colors">
+                  Login
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Curriculum */}
+          <div>
+            <h3 className="font-heading font-semibold mb-4">Curriculum</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/curriculum/basic" className="hover:text-accent transition-colors">
+                  Basic Track
+                </Link>
+              </li>
+              <li>
+                <Link to="/curriculum/application" className="hover:text-accent transition-colors">
+                  Application Track
+                </Link>
+              </li>
+              <li>
+                <Link to="/curriculum/robot" className="hover:text-accent transition-colors">
+                  Robot Track
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="font-heading font-semibold mb-4">Contact</h3>
+            <ul className="space-y-2 text-sm">
+              <li className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-accent" />
+                <span>info@academy.ai</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="h-4 w-4 text-accent" />
+                <span>+1 (555) 123-4567</span>
+              </li>
+              <li className="flex items-center gap-2">
+                <MapPin className="h-4 w-4 text-accent" />
+                <span>San Francisco, CA</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-secondary-foreground/20 mt-8 pt-8 text-center text-sm text-secondary-foreground/60">
+          <p>&copy; 2024 AI & Robotics Academy. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  );
+};
