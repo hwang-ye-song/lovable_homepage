@@ -4,7 +4,7 @@ import { Footer } from "@/components/layout/Footer";
 import { PortfolioCard } from "@/components/PortfolioCard";
 import { Button } from "@/components/ui/button";
 
-const categories = ["All", "AI", "Robotics", "NLP", "Computer Vision"];
+const categories = ["전체", "AI", "로봇공학", "NLP", "컴퓨터 비전"];
 
 const projects = [
   {
@@ -75,7 +75,7 @@ const projects = [
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const filteredProjects = selectedCategory === "All"
+  const filteredProjects = selectedCategory === "전체"
     ? projects
     : projects.filter(project => project.category === selectedCategory);
 
