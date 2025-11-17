@@ -198,4 +198,8 @@ All colors MUST be HSL.
   h6 {
     font-size: var(--text-h6);
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
 }

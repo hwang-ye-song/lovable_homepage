@@ -6,6 +6,14 @@ import { Button } from "@/components/ui/button";
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setIsOpen(false);
+    }
+  };
+
   return (
     <nav className="fixed top-0 w-full bg-background/95 backdrop-blur-sm border-b border-border z-50">
       <div className="container mx-auto px-4">
@@ -18,21 +26,18 @@ export const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link to="/" className="text-foreground hover:text-primary transition-colors">
+            <button onClick={() => scrollToSection('hero')} className="text-foreground hover:text-primary transition-colors">
               홈
-            </Link>
-            <Link to="/curriculum/basic" className="text-foreground hover:text-primary transition-colors">
+            </button>
+            <button onClick={() => scrollToSection('curriculum')} className="text-foreground hover:text-primary transition-colors">
               커리큘럼
-            </Link>
-            <Link to="/portfolio" className="text-foreground hover:text-primary transition-colors">
+            </button>
+            <button onClick={() => scrollToSection('portfolio')} className="text-foreground hover:text-primary transition-colors">
               포트폴리오
-            </Link>
-            <Link to="/faculty" className="text-foreground hover:text-primary transition-colors">
-              교수진
-            </Link>
-            <Link to="/login">
-              <Button variant="default">로그인</Button>
-            </Link>
+            </button>
+            <Button onClick={() => scrollToSection('contact')} variant="default">
+              상담하기
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -48,37 +53,27 @@ export const Navbar = () => {
         {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden py-4 space-y-4">
-            <Link
-              to="/"
-              className="block text-foreground hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
+            <button
+              onClick={() => scrollToSection('hero')}
+              className="block w-full text-left text-foreground hover:text-primary transition-colors"
             >
               홈
-            </Link>
-            <Link
-              to="/curriculum/basic"
-              className="block text-foreground hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
+            </button>
+            <button
+              onClick={() => scrollToSection('curriculum')}
+              className="block w-full text-left text-foreground hover:text-primary transition-colors"
             >
               커리큘럼
-            </Link>
-            <Link
-              to="/portfolio"
-              className="block text-foreground hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
+            </button>
+            <button
+              onClick={() => scrollToSection('portfolio')}
+              className="block w-full text-left text-foreground hover:text-primary transition-colors"
             >
               포트폴리오
-            </Link>
-            <Link
-              to="/faculty"
-              className="block text-foreground hover:text-primary transition-colors"
-              onClick={() => setIsOpen(false)}
-            >
-              교수진
-            </Link>
-            <Link to="/login" onClick={() => setIsOpen(false)}>
-              <Button variant="default" className="w-full">로그인</Button>
-            </Link>
+            </button>
+            <Button onClick={() => scrollToSection('contact')} variant="default" className="w-full">
+              상담하기
+            </Button>
           </div>
         )}
       </div>

@@ -14,7 +14,7 @@ const Index = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-background to-primary/5">
+      <section id="hero" className="pt-32 pb-20 px-4 bg-gradient-to-br from-background to-primary/5">
         <div className="container mx-auto text-center">
           <div className="inline-block mb-6 px-4 py-2 bg-accent/10 rounded-full animate-fade-in">
             <span className="text-accent font-medium text-sm">차세대 학습</span>
@@ -82,7 +82,7 @@ const Index = () => {
       </section>
 
       {/* Curriculum Section */}
-      <section className="py-20 px-4 bg-muted/30">
+      <section id="curriculum" className="py-20 px-4 bg-muted/30">
         <div className="container mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="font-heading text-4xl font-bold mb-4">커리큘럼</h2>
@@ -127,7 +127,7 @@ const Index = () => {
       </section>
 
       {/* Portfolio Preview */}
-      <section className="py-20 px-4">
+      <section id="portfolio" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="font-heading text-4xl font-bold mb-4">학생 프로젝트</h2>
@@ -229,7 +229,7 @@ const Index = () => {
       </section>
 
       {/* Registration CTA */}
-      <section className="py-20 px-4">
+      <section id="contact" className="py-20 px-4">
         <div className="container mx-auto max-w-4xl">
           <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 rounded-lg p-12 text-center animate-fade-in hover-scale">
             <h2 className="font-heading text-4xl font-bold mb-4">학습 여정을 시작할 준비가 되셨나요?</h2>
