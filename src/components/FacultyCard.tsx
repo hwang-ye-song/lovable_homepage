@@ -12,7 +12,7 @@ interface FacultyCardProps {
 
 export const FacultyCard = ({ name, title, expertise, bio, email }: FacultyCardProps) => {
   return (
-    <Card className="hover:shadow-lg transition-shadow">
+    <Card className="hover:shadow-lg transition-all hover-scale">
       <CardHeader>
         <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-gradient-to-br from-primary/30 to-accent/30 flex items-center justify-center text-4xl font-bold text-primary">
           {name.charAt(0)}
