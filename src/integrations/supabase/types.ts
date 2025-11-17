@@ -166,25 +166,73 @@ export type Database = {
         }
         Relationships: []
       }
+      project_comments: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          project_id: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          project_id: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          project_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "project_comments_project_id_fkey"
+            columns: ["project_id"]
+            isOneToOne: false
+            referencedRelation: "projects"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "project_comments_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       projects: {
         Row: {
+          category: string | null
           created_at: string
           description: string
           id: string
+          image_url: string | null
+          tags: string[] | null
           title: string
           user_id: string
         }
         Insert: {
+          category?: string | null
           created_at?: string
           description: string
           id?: string
+          image_url?: string | null
+          tags?: string[] | null
           title: string
           user_id: string
         }
         Update: {
+          category?: string | null
           created_at?: string
           description?: string
           id?: string
+          image_url?: string | null
+          tags?: string[] | null
           title?: string
           user_id?: string
         }
