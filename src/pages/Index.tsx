@@ -1,346 +1,236 @@
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
+import { CurriculumCard } from "@/components/CurriculumCard";
+import { PortfolioCard } from "@/components/PortfolioCard";
+import { FacultyCard } from "@/components/FacultyCard";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Bot, Brain, Cpu, Lightbulb, ArrowRight, Rocket } from "lucide-react";
 
 const Index = () => {
-  const designTokens = {
-    colors: {
-      primary: {
-        DEFAULT: "hsl(200, 95%, 50%)",
-        foreground: "hsl(0, 0%, 100%)",
-        light: "hsl(200, 95%, 65%)",
-        dark: "hsl(200, 95%, 35%)",
-        usage: "Main brand color, CTA buttons, links, primary UI elements"
-      },
-      secondary: {
-        DEFAULT: "hsl(220, 60%, 20%)",
-        foreground: "hsl(0, 0%, 100%)",
-        light: "hsl(220, 50%, 30%)",
-        dark: "hsl(220, 70%, 12%)",
-        usage: "Headers, footers, secondary backgrounds, navigation"
-      },
-      accent: {
-        DEFAULT: "hsl(180, 100%, 50%)",
-        foreground: "hsl(220, 60%, 10%)",
-        light: "hsl(180, 100%, 65%)",
-        glow: "hsl(180, 100%, 50%)",
-        usage: "Highlights, hover states, focus indicators, notifications"
-      },
-      grayscale: {
-        50: "hsl(220, 15%, 98%)",
-        100: "hsl(220, 15%, 95%)",
-        200: "hsl(220, 15%, 88%)",
-        300: "hsl(220, 15%, 75%)",
-        400: "hsl(220, 15%, 60%)",
-        500: "hsl(220, 15%, 45%)",
-        600: "hsl(220, 15%, 35%)",
-        700: "hsl(220, 15%, 25%)",
-        800: "hsl(220, 15%, 15%)",
-        900: "hsl(220, 15%, 8%)",
-        usage: "Text hierarchy, borders, backgrounds, neutral UI elements"
-      }
-    },
-    typography: {
-      fonts: {
-        heading: {
-          family: "Space Grotesk",
-          fallback: "system-ui, sans-serif",
-          weights: [400, 500, 600, 700],
-          usage: "Page titles, section headings, hero text"
-        },
-        body: {
-          family: "Inter",
-          fallback: "system-ui, sans-serif",
-          weights: [300, 400, 500, 600, 700],
-          usage: "Paragraphs, UI text, captions, all body content"
-        }
-      },
-      scale: {
-        headings: {
-          h1: { size: "3.5rem", lineHeight: "1.2", letterSpacing: "-0.02em", weight: 600 },
-          h2: { size: "3rem", lineHeight: "1.2", letterSpacing: "-0.02em", weight: 600 },
-          h3: { size: "2.5rem", lineHeight: "1.2", letterSpacing: "-0.02em", weight: 600 },
-          h4: { size: "2rem", lineHeight: "1.2", letterSpacing: "-0.02em", weight: 600 },
-          h5: { size: "1.5rem", lineHeight: "1.2", letterSpacing: "-0.02em", weight: 600 },
-          h6: { size: "1.25rem", lineHeight: "1.2", letterSpacing: "-0.02em", weight: 600 }
-        },
-        body: {
-          lg: { size: "1.125rem", lineHeight: "1.75", letterSpacing: "0", weight: 400 },
-          base: { size: "1rem", lineHeight: "1.5", letterSpacing: "0", weight: 400 },
-          sm: { size: "0.875rem", lineHeight: "1.5", letterSpacing: "0", weight: 400 },
-          xs: { size: "0.75rem", lineHeight: "1.5", letterSpacing: "0", weight: 400 },
-          caption: { size: "0.6875rem", lineHeight: "1.5", letterSpacing: "0.025em", weight: 400 }
-        }
-      }
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="border-b border-border bg-card">
-        <div className="container mx-auto px-6 py-6">
-          <div className="flex items-center justify-between">
-            <h1 className="font-heading text-3xl font-semibold text-primary">
-              AI & Robotics Academy
-            </h1>
-            <Badge variant="secondary" className="text-sm">Design System</Badge>
+    <div className="min-h-screen">
+      <Navbar />
+      
+      {/* Hero Section */}
+      <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-background to-primary/5">
+        <div className="container mx-auto text-center">
+          <div className="inline-block mb-6 px-4 py-2 bg-accent/10 rounded-full">
+            <span className="text-accent font-medium text-sm">Next Generation Learning</span>
+          </div>
+          <h1 className="font-heading text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent">
+            AI & Robotics Academy
+          </h1>
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+            Empowering teenagers to become the innovators of tomorrow through hands-on AI and robotics education
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="group">
+              Get Started
+              <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+            <Link to="/curriculum/basic">
+              <Button size="lg" variant="outline">
+                Explore Curriculum
+              </Button>
+            </Link>
           </div>
         </div>
-      </header>
+      </section>
 
-      <main className="container mx-auto px-6 py-12">
-        {/* Introduction */}
-        <section className="mb-16">
-          <h2 className="mb-4 font-heading text-4xl font-semibold text-foreground">
-            Design System Tokens
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl">
-            Comprehensive design tokens for the AI & Robotics Academy website. All values are defined as CSS variables and can be referenced throughout the application.
-          </p>
-        </section>
-
-        {/* Color Palette */}
-        <section className="mb-16">
-          <h3 className="mb-8 font-heading text-3xl font-semibold text-foreground">
-            Color Palette
-          </h3>
-          
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {/* Primary Colors */}
-            <Card className="p-6">
-              <h4 className="mb-4 font-heading text-xl font-semibold">Primary - Electric Blue</h4>
-              <div className="space-y-3 mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-16 h-16 rounded-lg bg-primary-dark border border-gray-200"></div>
-                  <div>
-                    <p className="text-sm font-medium">Dark</p>
-                    <code className="text-xs text-muted-foreground">{designTokens.colors.primary.dark}</code>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-16 h-16 rounded-lg bg-primary border border-gray-200"></div>
-                  <div>
-                    <p className="text-sm font-medium">Default</p>
-                    <code className="text-xs text-muted-foreground">{designTokens.colors.primary.DEFAULT}</code>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-16 h-16 rounded-lg bg-primary-light border border-gray-200"></div>
-                  <div>
-                    <p className="text-sm font-medium">Light</p>
-                    <code className="text-xs text-muted-foreground">{designTokens.colors.primary.light}</code>
-                  </div>
-                </div>
-              </div>
-              <p className="text-sm text-muted-foreground">{designTokens.colors.primary.usage}</p>
-            </Card>
-
-            {/* Secondary Colors */}
-            <Card className="p-6">
-              <h4 className="mb-4 font-heading text-xl font-semibold">Secondary - Deep Navy</h4>
-              <div className="space-y-3 mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-16 h-16 rounded-lg bg-secondary-dark border border-gray-200"></div>
-                  <div>
-                    <p className="text-sm font-medium">Dark</p>
-                    <code className="text-xs text-muted-foreground">{designTokens.colors.secondary.dark}</code>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-16 h-16 rounded-lg bg-secondary border border-gray-200"></div>
-                  <div>
-                    <p className="text-sm font-medium">Default</p>
-                    <code className="text-xs text-muted-foreground">{designTokens.colors.secondary.DEFAULT}</code>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-16 h-16 rounded-lg bg-secondary-light border border-gray-200"></div>
-                  <div>
-                    <p className="text-sm font-medium">Light</p>
-                    <code className="text-xs text-muted-foreground">{designTokens.colors.secondary.light}</code>
-                  </div>
-                </div>
-              </div>
-              <p className="text-sm text-muted-foreground">{designTokens.colors.secondary.usage}</p>
-            </Card>
-
-            {/* Accent Colors */}
-            <Card className="p-6">
-              <h4 className="mb-4 font-heading text-xl font-semibold">Accent - Bright Cyan</h4>
-              <div className="space-y-3 mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-16 h-16 rounded-lg bg-accent border border-gray-200"></div>
-                  <div>
-                    <p className="text-sm font-medium">Default</p>
-                    <code className="text-xs text-muted-foreground">{designTokens.colors.accent.DEFAULT}</code>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-16 h-16 rounded-lg bg-accent-light border border-gray-200"></div>
-                  <div>
-                    <p className="text-sm font-medium">Light</p>
-                    <code className="text-xs text-muted-foreground">{designTokens.colors.accent.light}</code>
-                  </div>
-                </div>
-              </div>
-              <p className="text-sm text-muted-foreground">{designTokens.colors.accent.usage}</p>
-            </Card>
-          </div>
-
-          {/* Grayscale */}
-          <Card className="p-6 mt-8">
-            <h4 className="mb-4 font-heading text-xl font-semibold">Grayscale - Neutral Tones</h4>
-            <div className="grid grid-cols-5 md:grid-cols-10 gap-2 mb-4">
-              {Object.entries(designTokens.colors.grayscale).filter(([key]) => key !== 'usage').map(([key, value]) => (
-                <div key={key} className="text-center">
-                  <div className={`w-full h-16 rounded-lg border border-gray-300`} style={{ backgroundColor: value }}></div>
-                  <p className="text-xs mt-2 font-medium">{key}</p>
-                  <code className="text-[10px] text-muted-foreground block">{value.split(',')[2]}</code>
-                </div>
-              ))}
-            </div>
-            <p className="text-sm text-muted-foreground">{designTokens.colors.grayscale.usage}</p>
-          </Card>
-        </section>
-
-        {/* Typography */}
-        <section className="mb-16">
-          <h3 className="mb-8 font-heading text-3xl font-semibold text-foreground">
-            Typography & Fonts
-          </h3>
-
-          <div className="grid gap-8 md:grid-cols-2">
-            {/* Font Families */}
-            <Card className="p-6">
-              <h4 className="mb-4 font-heading text-xl font-semibold">Font Families</h4>
-              <div className="space-y-6">
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground mb-2">Headings</p>
-                  <p className="font-heading text-2xl mb-1">{designTokens.typography.fonts.heading.family}</p>
-                  <code className="text-xs text-muted-foreground">font-heading</code>
-                  <p className="text-sm text-muted-foreground mt-2">Weights: {designTokens.typography.fonts.heading.weights.join(', ')}</p>
-                  <p className="text-sm text-muted-foreground">{designTokens.typography.fonts.heading.usage}</p>
-                </div>
-                <div>
-                  <p className="text-sm font-medium text-muted-foreground mb-2">Body Text</p>
-                  <p className="font-body text-2xl mb-1">{designTokens.typography.fonts.body.family}</p>
-                  <code className="text-xs text-muted-foreground">font-body</code>
-                  <p className="text-sm text-muted-foreground mt-2">Weights: {designTokens.typography.fonts.body.weights.join(', ')}</p>
-                  <p className="text-sm text-muted-foreground">{designTokens.typography.fonts.body.usage}</p>
-                </div>
-              </div>
-            </Card>
-
-            {/* Heading Scale */}
-            <Card className="p-6">
-              <h4 className="mb-4 font-heading text-xl font-semibold">Heading Scale</h4>
-              <div className="space-y-4">
-                {Object.entries(designTokens.typography.scale.headings).map(([tag, styles]) => (
-                  <div key={tag}>
-                    <p className="font-heading" style={{ fontSize: styles.size, lineHeight: styles.lineHeight, letterSpacing: styles.letterSpacing, fontWeight: styles.weight }}>
-                      {tag.toUpperCase()} - Sample Heading
-                    </p>
-                    <div className="text-xs text-muted-foreground mt-1">
-                      <code>{styles.size} / {styles.lineHeight} / {styles.letterSpacing} / {styles.weight}</code>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Card>
-
-            {/* Body Scale */}
-            <Card className="p-6 md:col-span-2">
-              <h4 className="mb-4 font-heading text-xl font-semibold">Body Text Scale</h4>
-              <div className="grid gap-6 md:grid-cols-5">
-                {Object.entries(designTokens.typography.scale.body).map(([name, styles]) => (
-                  <div key={name}>
-                    <p className="font-medium text-muted-foreground text-xs mb-2">{name.toUpperCase()}</p>
-                    <p className="font-body mb-2" style={{ fontSize: styles.size, lineHeight: styles.lineHeight, letterSpacing: styles.letterSpacing, fontWeight: styles.weight }}>
-                      Sample text for {name} size
-                    </p>
-                    <div className="text-[10px] text-muted-foreground">
-                      <code className="block">{styles.size}</code>
-                      <code className="block">LH: {styles.lineHeight}</code>
-                      <code className="block">LS: {styles.letterSpacing}</code>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Card>
-          </div>
-        </section>
-
-        {/* CSS Variables Reference */}
-        <section className="mb-16">
-          <Card className="p-8 bg-gray-50 border-2">
-            <h3 className="mb-6 font-heading text-2xl font-semibold text-foreground">
-              CSS Variables Reference
-            </h3>
-            <div className="grid gap-6 md:grid-cols-2">
-              <div>
-                <h5 className="font-heading text-lg font-semibold mb-3">Colors</h5>
-                <pre className="text-xs bg-background p-4 rounded-lg overflow-x-auto border">
-{`--primary: 200 95% 50%
---primary-light: 200 95% 65%
---primary-dark: 200 95% 35%
-
---secondary: 220 60% 20%
---secondary-light: 220 50% 30%
---secondary-dark: 220 70% 12%
-
---accent: 180 100% 50%
---accent-light: 180 100% 65%
-
---gray-[50-900]: 220 15% [value]%`}
-                </pre>
-              </div>
-              <div>
-                <h5 className="font-heading text-lg font-semibold mb-3">Typography</h5>
-                <pre className="text-xs bg-background p-4 rounded-lg overflow-x-auto border">
-{`--font-heading: 'Space Grotesk'
---font-body: 'Inter'
-
---text-h1: 3.5rem
---text-h2: 3rem
---text-h3: 2.5rem
---text-h4: 2rem
---text-h5: 1.5rem
---text-h6: 1.25rem
-
---text-lg: 1.125rem
---text-base: 1rem
---text-sm: 0.875rem
---text-xs: 0.75rem`}
-                </pre>
-              </div>
-            </div>
-          </Card>
-        </section>
-
-        {/* JSON Export */}
-        <section>
-          <Card className="p-8 bg-secondary text-secondary-foreground">
-            <h3 className="mb-4 font-heading text-2xl font-semibold">
-              JSON Design Tokens
-            </h3>
-            <p className="text-sm mb-4 opacity-90">
-              Complete design system exported as JSON for use in design tools and development
+      {/* Learning Roadmap */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-4xl font-bold mb-4">Your Learning Journey</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Follow a structured path from fundamentals to advanced robotics
             </p>
-            <pre className="text-xs bg-secondary-dark p-6 rounded-lg overflow-x-auto max-h-96">
-              {JSON.stringify(designTokens, null, 2)}
-            </pre>
-          </Card>
-        </section>
-      </main>
+          </div>
+          
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 max-w-4xl mx-auto">
+            <div className="flex-1 text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                <Lightbulb className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="font-heading text-xl font-semibold mb-2">1. Basic Track</h3>
+              <p className="text-sm text-muted-foreground">Foundation in AI concepts</p>
+            </div>
+            
+            <ArrowRight className="hidden md:block h-8 w-8 text-accent" />
+            
+            <div className="flex-1 text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                <Brain className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="font-heading text-xl font-semibold mb-2">2. Application Track</h3>
+              <p className="text-sm text-muted-foreground">Apply AI to real problems</p>
+            </div>
+            
+            <ArrowRight className="hidden md:block h-8 w-8 text-accent" />
+            
+            <div className="flex-1 text-center">
+              <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
+                <Rocket className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="font-heading text-xl font-semibold mb-2">3. Robot Track</h3>
+              <p className="text-sm text-muted-foreground">Build intelligent robots</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-      {/* Footer */}
-      <footer className="border-t border-border bg-card mt-16">
-        <div className="container mx-auto px-6 py-8">
-          <p className="text-center text-sm text-muted-foreground">
-            AI & Robotics Academy Design System · 2024
+      {/* Curriculum Section */}
+      <section className="py-20 px-4 bg-muted/30">
+        <div className="container mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="font-heading text-4xl font-bold mb-4">Our Curriculum</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Three progressive tracks designed to build comprehensive AI and robotics skills
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <CurriculumCard
+              id="basic"
+              title="Basic Track"
+              description="Master the fundamentals of AI and programming"
+              level="Beginner"
+              duration="12 weeks"
+              icon={<Lightbulb className="h-8 w-8" />}
+            />
+            <CurriculumCard
+              id="application"
+              title="Application Track"
+              description="Apply AI concepts to solve real-world problems"
+              level="Intermediate"
+              duration="16 weeks"
+              icon={<Brain className="h-8 w-8" />}
+            />
+            <CurriculumCard
+              id="robot"
+              title="Robot Track"
+              description="Design and build intelligent robotic systems"
+              level="Advanced"
+              duration="20 weeks"
+              icon={<Bot className="h-8 w-8" />}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Preview */}
+      <section className="py-20 px-4">
+        <div className="container mx-auto">
+          <div className="flex items-center justify-between mb-12">
+            <div>
+              <h2 className="font-heading text-4xl font-bold mb-4">Student Projects</h2>
+              <p className="text-muted-foreground">See what our students have created</p>
+            </div>
+            <Link to="/portfolio">
+              <Button variant="outline">
+                View All
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <PortfolioCard
+              title="AI Chess Player"
+              student="Sarah Chen"
+              description="A machine learning model that plays chess at intermediate level"
+              category="AI"
+              image="♟️"
+            />
+            <PortfolioCard
+              title="Voice Assistant"
+              student="Alex Kumar"
+              description="Natural language processing assistant for daily tasks"
+              category="NLP"
+              image="🎤"
+            />
+            <PortfolioCard
+              title="Line Following Robot"
+              student="Emma Wilson"
+              description="Autonomous robot that navigates using computer vision"
+              category="Robotics"
+              image="🤖"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Faculty Preview */}
+      <section className="py-20 px-4 bg-muted/30">
+        <div className="container mx-auto">
+          <div className="flex items-center justify-between mb-12">
+            <div>
+              <h2 className="font-heading text-4xl font-bold mb-4">Meet Our Faculty</h2>
+              <p className="text-muted-foreground">Learn from industry experts and educators</p>
+            </div>
+            <Link to="/faculty">
+              <Button variant="outline">
+                View All
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <FacultyCard
+              name="Dr. James Park"
+              title="Director of AI Programs"
+              expertise={["Machine Learning", "Deep Learning", "Computer Vision"]}
+              bio="15 years of experience in AI research and education"
+              email="j.park@academy.ai"
+            />
+            <FacultyCard
+              name="Prof. Maria Garcia"
+              title="Robotics Lead"
+              expertise={["Robotics", "Embedded Systems", "Control Theory"]}
+              bio="Former NASA robotics engineer and educator"
+              email="m.garcia@academy.ai"
+            />
+            <FacultyCard
+              name="Dr. Lisa Wong"
+              title="NLP Specialist"
+              expertise={["NLP", "AI Ethics", "Data Science"]}
+              bio="Published researcher in natural language processing"
+              email="l.wong@academy.ai"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Registration CTA */}
+      <section className="py-20 px-4 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10">
+        <div className="container mx-auto max-w-3xl text-center">
+          <Cpu className="h-16 w-16 mx-auto mb-6 text-primary" />
+          <h2 className="font-heading text-4xl font-bold mb-4">Ready to Start Your Journey?</h2>
+          <p className="text-xl text-muted-foreground mb-8">
+            Join hundreds of students learning AI and robotics
+          </p>
+          
+          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <Input
+              type="email"
+              placeholder="Enter your email"
+              className="flex-1"
+            />
+            <Button size="lg">
+              Register Now
+            </Button>
+          </div>
+          
+          <p className="text-sm text-muted-foreground mt-4">
+            Free trial available. No credit card required.
           </p>
         </div>
-      </footer>
+      </section>
+
+      <Footer />
     </div>
   );
 };
