@@ -109,16 +109,16 @@ const CurriculumDetail = () => {
       
       <div className="pt-24 pb-12 px-4 bg-gradient-to-br from-background to-primary/5">
         <div className="container mx-auto">
-          <Link to="/" className="inline-flex items-center text-muted-foreground hover:text-primary mb-6 transition-colors">
+          <Link to="/" className="inline-flex items-center text-muted-foreground hover:text-primary mb-6 transition-colors animate-fade-in">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Home
+            홈으로 돌아가기
           </Link>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-8">
               {/* Header */}
-              <div>
+              <div className="animate-fade-in">
                 <Badge className="mb-4">{curriculum.level}</Badge>
                 <h1 className="font-heading text-5xl font-bold mb-4">{curriculum.title}</h1>
                 <p className="text-2xl text-primary font-medium mb-4">{curriculum.subtitle}</p>
@@ -126,11 +126,11 @@ const CurriculumDetail = () => {
               </div>
 
               {/* Three-Stage Roadmap */}
-              <div>
-                <h2 className="font-heading text-3xl font-bold mb-6">Three-Stage Roadmap</h2>
+              <div className="animate-fade-in" style={{ animationDelay: '0.1s' }}>
+                <h2 className="font-heading text-3xl font-bold mb-6">3단계 로드맵</h2>
                 <div className="space-y-6">
                   {curriculum.tracks.map((track, index) => (
-                    <Card key={index} className="border-l-4 border-l-primary">
+                    <Card key={index} className="border-l-4 border-l-primary hover-scale animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
                       <CardHeader>
                         <div className="flex items-start justify-between gap-4">
                           <div className="flex-1">
@@ -162,11 +162,11 @@ const CurriculumDetail = () => {
               </div>
 
               {/* Media Gallery */}
-              <div>
-                <h2 className="font-heading text-3xl font-bold mb-6">Project Gallery</h2>
+              <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                <h2 className="font-heading text-3xl font-bold mb-6">프로젝트 갤러리</h2>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {curriculum.mediaAssets.map((asset, index) => (
-                    <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
+                    <Card key={index} className="overflow-hidden hover-scale animate-fade-in" style={{ animationDelay: `${index * 0.05}s` }}>
                       <div className="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-6xl">
                         {asset.emoji}
                       </div>
@@ -181,30 +181,30 @@ const CurriculumDetail = () => {
 
             {/* Sidebar */}
             <div className="space-y-6">
-              <Card className="sticky top-24">
+              <Card className="sticky top-24 animate-fade-in hover-scale" style={{ animationDelay: '0.3s' }}>
                 <CardHeader>
-                  <CardTitle className="font-heading">Course Info</CardTitle>
+                  <CardTitle className="font-heading">코스 정보</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="flex items-center gap-3">
                     <Clock className="h-5 w-5 text-muted-foreground" />
                     <div>
-                      <p className="text-sm text-muted-foreground">Duration</p>
+                      <p className="text-sm text-muted-foreground">기간</p>
                       <p className="font-medium">{curriculum.duration}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Users className="h-5 w-5 text-muted-foreground" />
                     <div>
-                      <p className="text-sm text-muted-foreground">Students</p>
+                      <p className="text-sm text-muted-foreground">수강생</p>
                       <p className="font-medium">{curriculum.students}</p>
                     </div>
                   </div>
-                  <Button className="w-full mt-4" size="lg">
-                    Enroll Now
+                  <Button className="w-full mt-4 hover-scale" size="lg">
+                    지금 등록하기
                   </Button>
                   <p className="text-xs text-center text-muted-foreground">
-                    14-day money-back guarantee
+                    14일 환불 보장
                   </p>
                 </CardContent>
               </Card>

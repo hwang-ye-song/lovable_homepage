@@ -11,7 +11,7 @@ interface PortfolioCardProps {
 
 export const PortfolioCard = ({ title, student, description, category, image }: PortfolioCardProps) => {
   return (
-    <Card className="overflow-hidden hover:shadow-lg transition-shadow">
+    <Card className="overflow-hidden hover:shadow-lg transition-all hover-scale">
       <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-4xl">
         {image}
       </div>
@@ -20,7 +20,7 @@ export const PortfolioCard = ({ title, student, description, category, image }: 
           <Badge variant="secondary">{category}</Badge>
         </div>
         <CardTitle className="font-heading text-xl">{title}</CardTitle>
-        <CardDescription>by {student}</CardDescription>
+        <CardDescription>제작: {student}</CardDescription>
       </CardHeader>
       <CardContent>
         <p className="text-sm text-muted-foreground">{description}</p>
