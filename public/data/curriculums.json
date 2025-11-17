@@ -1,170 +1,170 @@
 {
   "basic": {
     "id": "basic",
-    "title": "Basic Track",
-    "subtitle": "Foundation in AI and Programming",
-    "description": "Build a strong foundation in AI concepts, programming fundamentals, and logical thinking. This comprehensive track is designed for beginners with no prior programming experience, guiding you through the essentials of artificial intelligence and Python programming.",
-    "level": "Beginner",
-    "duration": "12 weeks",
-    "students": "150+ enrolled",
+    "title": "기초 트랙",
+    "subtitle": "AI와 프로그래밍 기초",
+    "description": "AI 개념, 프로그래밍 기초, 논리적 사고의 탄탄한 기초를 쌓으세요. 이 종합 트랙은 프로그래밍 경험이 없는 초보자를 위해 설계되었으며, 인공지능과 파이썬 프로그래밍의 필수 요소를 안내합니다.",
+    "level": "초급",
+    "duration": "12주",
+    "students": "150명 이상 등록",
     "tracks": [
       {
-        "name": "Track 1: Introduction to AI",
-        "duration": "4 weeks",
-        "description": "Discover the fundamentals of artificial intelligence and its real-world applications",
+        "name": "트랙 1: AI 입문",
+        "duration": "4주",
+        "description": "인공지능의 기초와 실제 응용 분야를 탐색합니다",
         "topics": [
-          "What is AI and Machine Learning?",
-          "History and Evolution of AI",
-          "AI Applications in Daily Life",
-          "Ethics and Responsible AI",
-          "Introduction to Python Programming",
-          "Setting Up Your Development Environment"
+          "AI와 머신러닝이란?",
+          "AI의 역사와 진화",
+          "일상생활 속 AI 응용",
+          "윤리와 책임있는 AI",
+          "파이썬 프로그래밍 소개",
+          "개발 환경 설정하기"
         ]
       },
       {
-        "name": "Track 2: Programming Fundamentals",
-        "duration": "5 weeks",
-        "description": "Master Python programming and essential data structures for AI development",
+        "name": "트랙 2: 프로그래밍 기초",
+        "duration": "5주",
+        "description": "AI 개발을 위한 파이썬 프로그래밍과 필수 자료구조를 마스터합니다",
         "topics": [
-          "Python Syntax and Variables",
-          "Control Flow and Loops",
-          "Functions and Modules",
-          "Data Structures (Lists, Dictionaries, Sets)",
-          "File Handling and Data Processing",
-          "Algorithm Design and Problem Solving"
+          "파이썬 문법과 변수",
+          "제어 흐름과 반복문",
+          "함수와 모듈",
+          "자료구조 (리스트, 딕셔너리, 집합)",
+          "파일 처리와 데이터 처리",
+          "알고리즘 설계와 문제 해결"
         ]
       },
       {
-        "name": "Track 3: Machine Learning Basics",
-        "duration": "3 weeks",
-        "description": "Apply your skills to build your first machine learning projects",
+        "name": "트랙 3: 머신러닝 기초",
+        "duration": "3주",
+        "description": "실력을 적용하여 첫 번째 머신러닝 프로젝트를 구축합니다",
         "topics": [
-          "Introduction to Machine Learning Concepts",
-          "Supervised vs Unsupervised Learning",
-          "Training Your First Model",
-          "Data Preprocessing and Feature Engineering",
-          "Model Evaluation and Metrics",
-          "Capstone Project: Build an AI Application"
+          "머신러닝 개념 소개",
+          "지도 학습 vs 비지도 학습",
+          "첫 모델 훈련하기",
+          "데이터 전처리와 특징 공학",
+          "모델 평가와 지표",
+          "캡스톤 프로젝트: AI 애플리케이션 구축"
         ]
       }
     ],
     "mediaAssets": [
-      { "type": "image", "title": "Python Programming", "emoji": "🐍" },
-      { "type": "image", "title": "AI Concepts", "emoji": "🧠" },
-      { "type": "image", "title": "Data Visualization", "emoji": "📊" },
-      { "type": "image", "title": "First ML Model", "emoji": "🤖" }
+      { "type": "image", "title": "파이썬 프로그래밍", "emoji": "🐍" },
+      { "type": "image", "title": "AI 개념", "emoji": "🧠" },
+      { "type": "image", "title": "데이터 시각화", "emoji": "📊" },
+      { "type": "image", "title": "첫 ML 모델", "emoji": "🤖" }
     ]
   },
   "application": {
     "id": "application",
-    "title": "Application Track",
-    "subtitle": "Real-World AI Applications",
-    "description": "Apply AI techniques to solve real-world problems and develop practical solutions. This intermediate track builds on foundational knowledge to create production-ready AI applications using modern frameworks and tools.",
-    "level": "Intermediate",
-    "duration": "16 weeks",
-    "students": "120+ enrolled",
+    "title": "응용 트랙",
+    "subtitle": "실제 AI 애플리케이션",
+    "description": "AI 기술을 적용하여 실제 문제를 해결하고 실용적인 솔루션을 개발하세요. 이 중급 트랙은 기초 지식을 바탕으로 현대적인 프레임워크와 도구를 사용하여 프로덕션 준비가 된 AI 애플리케이션을 만듭니다.",
+    "level": "중급",
+    "duration": "16주",
+    "students": "120명 이상 등록",
     "tracks": [
       {
-        "name": "Track 1: Advanced Machine Learning",
-        "duration": "5 weeks",
-        "description": "Deep dive into advanced ML algorithms and techniques",
+        "name": "트랙 1: 고급 머신러닝",
+        "duration": "5주",
+        "description": "고급 ML 알고리즘과 기술을 깊이 있게 탐구합니다",
         "topics": [
-          "Decision Trees and Random Forests",
-          "Support Vector Machines",
-          "Neural Network Fundamentals",
-          "Ensemble Learning Methods",
-          "Hyperparameter Tuning",
-          "Cross-Validation Techniques"
+          "의사결정 트리와 랜덤 포레스트",
+          "서포트 벡터 머신",
+          "신경망 기초",
+          "앙상블 학습 방법",
+          "하이퍼파라미터 튜닝",
+          "교차 검증 기법"
         ]
       },
       {
-        "name": "Track 2: Deep Learning & Computer Vision",
-        "duration": "6 weeks",
-        "description": "Master neural networks and visual AI applications",
+        "name": "트랙 2: 딥러닝 & 컴퓨터 비전",
+        "duration": "6주",
+        "description": "신경망과 시각적 AI 애플리케이션을 마스터합니다",
         "topics": [
-          "Deep Neural Networks Architecture",
-          "Convolutional Neural Networks (CNN)",
-          "Transfer Learning with Pre-trained Models",
-          "Object Detection and Recognition",
-          "Image Classification Projects",
-          "TensorFlow and PyTorch Fundamentals"
+          "심층 신경망 아키텍처",
+          "합성곱 신경망 (CNN)",
+          "사전 훈련된 모델을 활용한 전이 학습",
+          "객체 탐지와 인식",
+          "이미지 분류 프로젝트",
+          "TensorFlow와 PyTorch 기초"
         ]
       },
       {
-        "name": "Track 3: NLP & Production Deployment",
-        "duration": "5 weeks",
-        "description": "Build and deploy complete AI applications",
+        "name": "트랙 3: NLP & 프로덕션 배포",
+        "duration": "5주",
+        "description": "완전한 AI 애플리케이션을 구축하고 배포합니다",
         "topics": [
-          "Natural Language Processing Basics",
-          "Text Classification and Sentiment Analysis",
-          "Chatbot Development",
-          "Model Deployment Strategies",
-          "API Development for ML Models",
-          "Capstone: End-to-End AI Application"
+          "자연어 처리 기초",
+          "텍스트 분류와 감정 분석",
+          "챗봇 개발",
+          "모델 배포 전략",
+          "ML 모델을 위한 API 개발",
+          "캡스톤: 엔드투엔드 AI 애플리케이션"
         ]
       }
     ],
     "mediaAssets": [
-      { "type": "image", "title": "Neural Networks", "emoji": "🕸️" },
-      { "type": "image", "title": "Computer Vision", "emoji": "👁️" },
-      { "type": "image", "title": "NLP Processing", "emoji": "💬" },
-      { "type": "image", "title": "Model Deployment", "emoji": "🚀" }
+      { "type": "image", "title": "신경망", "emoji": "🕸️" },
+      { "type": "image", "title": "컴퓨터 비전", "emoji": "👁️" },
+      { "type": "image", "title": "NLP 처리", "emoji": "💬" },
+      { "type": "image", "title": "모델 배포", "emoji": "🚀" }
     ]
   },
   "robot": {
     "id": "robot",
-    "title": "Robot Track",
-    "subtitle": "Intelligent Robotics Systems",
-    "description": "Design, build, and program intelligent robotic systems from scratch. This advanced track combines AI, hardware engineering, and control systems to create autonomous robots capable of perceiving and interacting with their environment.",
-    "level": "Advanced",
-    "duration": "20 weeks",
-    "students": "80+ enrolled",
+    "title": "로봇 트랙",
+    "subtitle": "지능형 로봇 시스템",
+    "description": "지능형 로봇 시스템을 처음부터 설계, 제작, 프로그래밍하세요. 이 고급 트랙은 AI, 하드웨어 엔지니어링, 제어 시스템을 결합하여 환경을 인식하고 상호작용할 수 있는 자율 로봇을 만듭니다.",
+    "level": "고급",
+    "duration": "20주",
+    "students": "80명 이상 등록",
     "tracks": [
       {
-        "name": "Track 1: Robotics Hardware & Fundamentals",
-        "duration": "6 weeks",
-        "description": "Learn robotics hardware, sensors, and electronic components",
+        "name": "트랙 1: 로봇 하드웨어 & 기초",
+        "duration": "6주",
+        "description": "로봇 하드웨어, 센서, 전자 부품을 학습합니다",
         "topics": [
-          "Robotics Components and Architecture",
-          "Sensors and Actuators",
-          "Motor Control Systems",
-          "Power Management and Electronics",
-          "Microcontrollers and Embedded Systems",
-          "Building Your First Robot"
+          "로봇 구성요소와 아키텍처",
+          "센서와 액추에이터",
+          "모터 제어 시스템",
+          "전력 관리와 전자공학",
+          "마이크로컨트롤러와 임베디드 시스템",
+          "첫 로봇 제작하기"
         ]
       },
       {
-        "name": "Track 2: Robot Programming & Navigation",
-        "duration": "7 weeks",
-        "description": "Program robots for autonomous navigation and control",
+        "name": "트랙 2: 로봇 프로그래밍 & 내비게이션",
+        "duration": "7주",
+        "description": "자율 내비게이션과 제어를 위한 로봇 프로그래밍",
         "topics": [
-          "Introduction to ROS (Robot Operating System)",
-          "Sensor Integration and Data Processing",
-          "Motion Planning and Path Finding",
-          "Obstacle Avoidance Algorithms",
-          "Localization and Mapping (SLAM)",
-          "Autonomous Navigation Systems"
+          "ROS (로봇 운영 체제) 소개",
+          "센서 통합과 데이터 처리",
+          "동작 계획과 경로 찾기",
+          "장애물 회피 알고리즘",
+          "위치 추정과 매핑 (SLAM)",
+          "자율 내비게이션 시스템"
         ]
       },
       {
-        "name": "Track 3: AI for Robotics & Final Project",
-        "duration": "7 weeks",
-        "description": "Integrate AI with robotics for intelligent behavior",
+        "name": "트랙 3: 로봇을 위한 AI & 최종 프로젝트",
+        "duration": "7주",
+        "description": "지능적 행동을 위해 AI를 로봇과 통합합니다",
         "topics": [
-          "Computer Vision for Robotics",
-          "Object Recognition and Tracking",
-          "Decision Making and Behavior Planning",
-          "Human-Robot Interaction",
-          "Robotic Arm Manipulation",
-          "Final Project: Build an Autonomous Robot"
+          "로봇을 위한 컴퓨터 비전",
+          "객체 인식과 추적",
+          "의사결정과 행동 계획",
+          "인간-로봇 상호작용",
+          "로봇 팔 조작",
+          "최종 프로젝트: 자율 로봇 제작"
         ]
       }
     ],
     "mediaAssets": [
-      { "type": "image", "title": "Robot Assembly", "emoji": "🔧" },
-      { "type": "image", "title": "Autonomous Navigation", "emoji": "🗺️" },
-      { "type": "image", "title": "Computer Vision", "emoji": "📷" },
-      { "type": "image", "title": "Complete Robot", "emoji": "🤖" }
+      { "type": "image", "title": "로봇 조립", "emoji": "🔧" },
+      { "type": "image", "title": "자율 내비게이션", "emoji": "🗺️" },
+      { "type": "image", "title": "컴퓨터 비전", "emoji": "📷" },
+      { "type": "image", "title": "완성된 로봇", "emoji": "🤖" }
     ]
   }
 }

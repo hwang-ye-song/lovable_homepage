@@ -13,25 +13,25 @@ export const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 font-heading font-bold text-xl text-primary">
             <Bot className="h-6 w-6" />
-            <span>AI & Robotics Academy</span>
+            <span>AI & 로봇공학 아카데미</span>
           </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <Link to="/" className="text-foreground hover:text-primary transition-colors">
-              Home
+              홈
             </Link>
             <Link to="/curriculum/basic" className="text-foreground hover:text-primary transition-colors">
-              Curriculum
+              커리큘럼
             </Link>
             <Link to="/portfolio" className="text-foreground hover:text-primary transition-colors">
-              Portfolio
+              포트폴리오
             </Link>
             <Link to="/faculty" className="text-foreground hover:text-primary transition-colors">
-              Faculty
+              교수진
             </Link>
             <Link to="/login">
-              <Button variant="default">Login</Button>
+              <Button variant="default">로그인</Button>
             </Link>
           </div>
 
@@ -53,31 +53,31 @@ export const Navbar = () => {
               className="block text-foreground hover:text-primary transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              Home
+              홈
             </Link>
             <Link
               to="/curriculum/basic"
               className="block text-foreground hover:text-primary transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              Curriculum
+              커리큘럼
             </Link>
             <Link
               to="/portfolio"
               className="block text-foreground hover:text-primary transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              Portfolio
+              포트폴리오
             </Link>
             <Link
               to="/faculty"
               className="block text-foreground hover:text-primary transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              Faculty
+              교수진
             </Link>
             <Link to="/login" onClick={() => setIsOpen(false)}>
-              <Button variant="default" className="w-full">Login</Button>
+              <Button variant="default" className="w-full">로그인</Button>
             </Link>
           </div>
         )}
