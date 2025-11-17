@@ -54,7 +54,7 @@ const Index = () => {
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
                 <Lightbulb className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="font-heading text-xl font-semibold mb-2">1. 기초 트랙</h3>
+              <h3 className="font-heading text-xl font-semibold mb-2">1. 기초 트랙 (Perception AI)</h3>
               <p className="text-sm text-muted-foreground">AI 개념의 기초</p>
             </div>
             
@@ -64,7 +64,7 @@ const Index = () => {
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-primary/10 flex items-center justify-center">
                 <Brain className="h-8 w-8 text-primary" />
               </div>
-              <h3 className="font-heading text-xl font-semibold mb-2">2. 응용 트랙</h3>
+              <h3 className="font-heading text-xl font-semibold mb-2">2. 응용 트랙 (Generative AI & Agentic AI)</h3>
               <p className="text-sm text-muted-foreground">실제 문제에 AI 적용</p>
             </div>
             
@@ -95,7 +95,7 @@ const Index = () => {
             <div className="animate-fade-in hover-scale">
               <CurriculumCard
                 id="basic"
-                title="AI 기초 트랙"
+                title="기초 트랙 (Perception AI)"
                 description="AI와 머신러닝의 기초를 배우세요"
                 level="초급"
                 duration="12주"
@@ -105,7 +105,7 @@ const Index = () => {
             <div className="animate-fade-in hover-scale" style={{ animationDelay: '0.1s' }}>
               <CurriculumCard
                 id="application"
-                title="AI 응용 트랙"
+                title="응용 트랙 (Generative AI & Agentic AI)"
                 description="AI 기술을 실제 문제 해결에 적용하세요"
                 level="중급"
                 duration="16주"
@@ -115,7 +115,7 @@ const Index = () => {
             <div className="animate-fade-in hover-scale" style={{ animationDelay: '0.2s' }}>
               <CurriculumCard
                 id="robot"
-                title="로봇공학 트랙"
+                title="로봇공학 트랙 (Physical AI)"
                 description="지능형 로봇을 만들고 프로그래밍하세요"
                 level="고급"
                 duration="20주"
