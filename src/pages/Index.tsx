@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { CurriculumCard } from "@/components/CurriculumCard";
@@ -9,6 +10,21 @@ import { Input } from "@/components/ui/input";
 import { Bot, Brain, Lightbulb, ArrowRight, Rocket } from "lucide-react";
 
 const Index = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const target = params.get("section");
+
+    if (target) {
+      const element = document.getElementById(target);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+      window.history.replaceState({}, "", location.pathname);
+    }
+  }, [location]);
+
   return (
     <div className="min-h-screen">
       <Navbar />

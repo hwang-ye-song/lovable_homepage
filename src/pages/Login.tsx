@@ -1,3 +1,4 @@
+import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
@@ -71,7 +72,7 @@ const Login = () => {
     <div className="min-h-screen">
       <Navbar />
       
-      <div className="pt-24 pb-12 px-4 min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-primary/5">
+      <div className="pt-24 pb-12 px-4 min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-background to-primary/5">
         <Card className="w-full max-w-md animate-fade-in animate-scale-in">
           <CardHeader className="text-center">
             <div className="flex justify-center mb-4">
@@ -145,6 +146,13 @@ const Login = () => {
             </p>
           </CardContent>
         </Card>
+        <div className="mt-6">
+          <Link to="/">
+            <Button variant="outline" className="hover-scale">
+              메인 화면으로 돌아가기
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );
