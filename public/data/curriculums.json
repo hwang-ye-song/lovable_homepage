@@ -105,10 +105,10 @@
       }
     ],
     "mediaAssets": [
-      { "type": "image", "title": "신경망", "emoji": "🕸️" },
-      { "type": "image", "title": "컴퓨터 비전", "emoji": "👁️" },
-      { "type": "image", "title": "NLP 처리", "emoji": "💬" },
-      { "type": "image", "title": "모델 배포", "emoji": "🚀" }
+      { "type": "image", "title": "신경망", "emoji": "🕸️", "src": "/images/app-neural.jpg" },
+      { "type": "image", "title": "컴퓨터 비전", "emoji": "👁️", "src": "/images/app-vision.jpg" },
+      { "type": "image", "title": "NLP 처리", "emoji": "💬", "src": "/images/app-nlp.jpg" },
+      { "type": "image", "title": "모델 배포", "emoji": "🚀", "src": "/images/app-deploy.jpg" }
     ]
   },
   "robot": {

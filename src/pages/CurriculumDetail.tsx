@@ -20,6 +20,7 @@ interface MediaAsset {
   type: string;
   title: string;
   emoji: string;
+  src?: string;
 }
 
 interface Curriculum {
@@ -168,9 +169,13 @@ const CurriculumDetail = () => {
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                   {curriculum.mediaAssets.map((asset, index) => (
                     <Card key={index} className="overflow-hidden hover-scale animate-fade-in" style={{ animationDelay: `${index * 0.05}s` }}>
-                      <div className="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-6xl">
-                        {asset.emoji}
-                      </div>
+                      {asset.src ? (
+                        <img src={asset.src} alt={asset.title} className="aspect-square object-cover w-full" />
+                      ) : (
+                        <div className="aspect-square bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center text-6xl">
+                          {asset.emoji}
+                        </div>
+                      )}
                       <CardContent className="p-3">
                         <p className="text-sm font-medium text-center">{asset.title}</p>
                       </CardContent>

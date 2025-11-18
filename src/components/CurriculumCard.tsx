@@ -11,12 +11,23 @@ interface CurriculumCardProps {
   level: string;
   duration: string;
   icon: React.ReactNode;
+  image?: string;
 }
 
-export const CurriculumCard = ({ id, title, description, level, duration, icon }: CurriculumCardProps) => {
+export const CurriculumCard = ({ id, title, description, level, duration, icon, image }: CurriculumCardProps) => {
   return (
-    <Card className="hover:shadow-lg transition-all hover-scale">
-      <CardHeader>
+    <Card className="group hover:shadow-lg transition-all hover-scale">
+      <CardHeader className="space-y-4">
+        {image && (
+          <div className="overflow-hidden rounded-xl border bg-muted/40">
+            <img
+              src={image}
+              alt={`${title} 미리보기`}
+              className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+              loading="lazy"
+            />
+          </div>
+        )}
         <div className="flex items-center gap-3 mb-2">
           <div className="text-primary">{icon}</div>
           <span className="text-xs font-medium text-accent uppercase tracking-wide">{level}</span>

@@ -116,6 +116,7 @@ const Index = () => {
                 level="초급"
                 duration="12주"
                 icon={<Lightbulb className="h-6 w-6" />}
+                image="/images/aice.jpg"
               />
             </div>
             <div className="animate-fade-in hover-scale" style={{ animationDelay: '0.1s' }}>
@@ -126,6 +127,7 @@ const Index = () => {
                 level="중급"
                 duration="16주"
                 icon={<Brain className="h-6 w-6" />}
+                image="/images/ai_agent.jpg"
               />
             </div>
             <div className="animate-fade-in hover-scale" style={{ animationDelay: '0.2s' }}>
@@ -136,6 +138,7 @@ const Index = () => {
                 level="고급"
                 duration="20주"
                 icon={<Bot className="h-6 w-6" />}
+                image="/images/lerobot.gif"
               />
             </div>
           </div>
