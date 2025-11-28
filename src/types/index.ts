@@ -32,6 +32,7 @@ export interface Comment {
   user_id: string;
   project_id?: string;
   post_id?: string;
+  parent_comment_id?: string | null;
   profiles?: {
     name?: string;
     avatar_url?: string | null;
@@ -40,6 +41,9 @@ export interface Comment {
     title: string;
   };
   is_hidden?: boolean;
+  replies?: Comment[];
+  likeCount?: number;
+  userLiked?: boolean;
 }
 
 export interface Like {

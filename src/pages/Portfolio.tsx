@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -9,7 +9,6 @@ import { Input } from "@/components/ui/input";
 import { supabase } from "@/integrations/supabase/client";
 import { Plus, Sparkles, Search } from "lucide-react";
 import { Project } from "@/types";
-import { useInfiniteQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
 
 const VISIBILITY_FILTER = "is_hidden.is.null,is_hidden.eq.false";
@@ -21,11 +20,30 @@ const Portfolio = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const categories = ["전체", "AI 기초", "AI 활용", "로봇"];
   const [user, setUser] = useState<any>(null);
-  const ITEMS_PER_PAGE = 12;
+  const [userRole, setUserRole] = useState<string | null>(null);
+  const [projects, setProjects] = useState<Project[]>([]);
+  const [totalCount, setTotalCount] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const ITEMS_PER_PAGE = 10;
 
   useEffect(() => {
+    const loadUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      setUser(user);
+      
+      if (user) {
+        const { data: profile } = await supabase
+          .from("profiles")
+          .select("role")
+          .eq("id", user.id)
+          .single();
+        setUserRole((profile as any)?.role || null);
+      }
+    };
+    
+    loadUser();
     fetchPopularProjects().then(setPopularProjects);
-    supabase.auth.getUser().then(({ data: { user } }) => setUser(user));
   }, []);
 
   const stripHtml = (html: string | null | undefined) => {
@@ -69,7 +87,9 @@ const Portfolio = () => {
     return query;
   };
 
-  const fetchProjects = useCallback(async ({ pageParam = 0 }) => {
+  const fetchProjects = useCallback(async () => {
+    setIsLoading(true);
+    const pageParam = currentPage - 1;
     const executeQuery = (skipVisibilityFilter = false) =>
       buildProjectsQuery(pageParam, skipVisibilityFilter);
 
@@ -81,61 +101,57 @@ const Portfolio = () => {
 
     if (error || !projectsData) {
       console.error("Failed to fetch projects:", error);
-      return { data: [], nextPage: undefined, total: 0 };
+      setProjects([]);
+      setTotalCount(0);
+      setIsLoading(false);
+      return;
     }
 
-    const filteredProjects = projectsData.filter(matchesSearch);
+    let filteredProjects = projectsData.filter(matchesSearch);
 
-    if (filteredProjects.length > 0) {
-      const projectsWithCounts = await Promise.all(
-        filteredProjects.map(async (project) => {
-          const [commentResult, likeResult] = await Promise.all([
-            supabase
-              .from('project_comments')
-              .select('*', { count: 'exact', head: true })
-              .eq('project_id', project.id),
-            supabase
-              .from('project_likes')
-              .select('*', { count: 'exact', head: true })
-              .eq('project_id', project.id)
-          ]);
-          
-          return {
-            ...project,
-            commentCount: commentResult.count || 0,
-            likeCount: likeResult.count || 0,
-            view_count: project.view_count || 0
-          };
-        })
-      );
-
-      return {
-        data: projectsWithCounts as Project[],
-        nextPage: filteredProjects.length === ITEMS_PER_PAGE ? pageParam + 1 : undefined,
-        total: count || 0
-      };
+    if (user) {
+      filteredProjects = filteredProjects.filter((project) => {
+        if (!project.is_hidden) return true;
+        return project.user_id === user.id || userRole === "admin";
+      });
+    } else {
+      filteredProjects = filteredProjects.filter((project) => !project.is_hidden);
     }
 
-    return { data: [], nextPage: undefined, total: 0 };
-  }, [selectedCategory, searchQuery]);
+    const projectsWithCounts = await Promise.all(
+      filteredProjects.map(async (project) => {
+        const [commentResult, likeResult] = await Promise.all([
+          supabase
+            .from('project_comments')
+            .select('*', { count: 'exact', head: true })
+            .eq('project_id', project.id),
+          supabase
+            .from('project_likes')
+            .select('*', { count: 'exact', head: true })
+            .eq('project_id', project.id)
+        ]);
+        
+        return {
+          ...project,
+          commentCount: commentResult.count || 0,
+          likeCount: likeResult.count || 0,
+          view_count: project.view_count || 0
+        };
+      })
+    );
 
-  const {
-    data,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-    isLoading,
-    refetch
-  } = useInfiniteQuery({
-    queryKey: ['projects', selectedCategory, searchQuery],
-    queryFn: fetchProjects,
-    getNextPageParam: (lastPage) => lastPage.nextPage,
-    initialPageParam: 0,
-  });
+    setProjects(projectsWithCounts as Project[]);
+    setTotalCount(count || 0);
+    setIsLoading(false);
+  }, [currentPage, selectedCategory, searchQuery, user, userRole]);
 
   useEffect(() => {
-    refetch();
-  }, [selectedCategory, searchQuery, refetch]);
+    fetchProjects();
+  }, [fetchProjects]);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [selectedCategory, searchQuery]);
 
   const fetchPopularProjects = async () => {
     const executeQuery = (skipVisibilityFilter = false) => {
@@ -146,7 +162,7 @@ const Portfolio = () => {
           profiles (name, avatar_url)
         `)
         .order("view_count", { ascending: false })
-        .limit(3);
+        .limit(10); // 더 많이 가져와서 필터링
 
       if (!skipVisibilityFilter) {
         query = query.or(VISIBILITY_FILTER);
@@ -162,6 +178,18 @@ const Portfolio = () => {
     }
 
     if (!error && projectsData) {
+      // 작성자이거나 관리자인 경우 숨겨진 프로젝트도 포함
+      if (user) {
+        projectsData = projectsData.filter((project) => {
+          if (!project.is_hidden) return true;
+          return project.user_id === user.id || userRole === "admin";
+        });
+      } else {
+        projectsData = projectsData.filter((project) => !project.is_hidden);
+      }
+      
+      // 상위 3개만 선택
+      projectsData = projectsData.slice(0, 3);
       const projectsWithCounts = await Promise.all(
         projectsData.map(async (project) => {
           const [commentResult, likeResult] = await Promise.all([
@@ -189,7 +217,24 @@ const Portfolio = () => {
     return [];
   };
 
-  const projects = data?.pages.flatMap(page => page.data) || [];
+  const totalPages = useMemo(() => Math.max(1, Math.ceil(totalCount / ITEMS_PER_PAGE)), [totalCount]);
+
+  const getPageNumbers = () => {
+    const maxButtons = 5;
+    const pages = [];
+    let start = Math.max(1, currentPage - Math.floor(maxButtons / 2));
+    let end = start + maxButtons - 1;
+
+    if (end > totalPages) {
+      end = totalPages;
+      start = Math.max(1, end - maxButtons + 1);
+    }
+
+    for (let i = start; i <= end; i++) {
+      pages.push(i);
+    }
+    return pages;
+  };
 
   const getOptimizedImageUrl = (url: string | null) => {
     if (!url) return null;
@@ -352,15 +397,36 @@ const Portfolio = () => {
                 </div>
               )}
 
-              {hasNextPage && (
-                <div className="flex justify-center mt-8">
-                  <Button
-                    onClick={() => fetchNextPage()}
-                    disabled={isFetchingNextPage}
-                    variant="outline"
-                  >
-                    {isFetchingNextPage ? "로딩 중..." : "더 보기"}
-                  </Button>
+              {projects.length > 0 && totalPages >= 1 && (
+                <div className="flex justify-center mt-10">
+                  <div className="flex items-center gap-2 flex-wrap justify-center">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
+                      disabled={currentPage === 1}
+                    >
+                      이전
+                    </Button>
+                    {getPageNumbers().map((page) => (
+                      <Button
+                        key={page}
+                        variant={page === currentPage ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => setCurrentPage(page)}
+                      >
+                        {page}
+                      </Button>
+                    ))}
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
+                      disabled={currentPage === totalPages}
+                    >
+                      다음
+                    </Button>
+                  </div>
                 </div>
               )}
             </>
